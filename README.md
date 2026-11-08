@@ -66,12 +66,24 @@ GAME_EXTRACTOR_JOBS=2 \
 
 ## Requirements
 
-| Tool | Purpose | Install |
-|------|---------|---------|
-| `innoextract` | Extract setup.exe (native backend only) | `pacman -S innoextract` / `apt install innoextract` |
-| `wine` | Run fitgirl-extractor.exe | `pacman -S wine` / `apt install wine` |
-| `fitgirl-extractor.exe` | Handles all codecs internally | Download from [releases](https://github.com/pisek/fitgirl-extractor/releases) |
-| `cpulimit` (optional) | CPU % limiting | `pacman -S cpulimit` / `apt install cpulimit` |
+| Tool | Required? | Install |
+|------|-----------|---------|
+| `wine` | **Yes** (Wine backend) | `pacman -S wine` / `apt install wine` |
+| `innoextract` | Native backend only | `pacman -S innoextract` / `apt install innoextract` |
+| `fitgirl-extractor.exe` | **Yes** (Wine backend) | **Download separately** (see below) |
+| `cpulimit` | Optional (CPU limiting) | `pacman -S cpulimit` / `apt install cpulimit` |
+
+### fitgirl-extractor.exe (Required)
+
+**Not included in this repo** — download from [pisek/fitgirl-extractor releases](https://github.com/pisek/fitgirl-extractor/releases):
+
+```bash
+# v0.2.1 (tested)
+wget -O /tmp/fitgirl-extractor.exe https://github.com/pisek/fitgirl-extractor/releases/download/v0.2.1/fitgirl-extractor.exe
+chmod +x /tmp/fitgirl-extractor.exe
+```
+
+The tool expects it at `/tmp/fitgirl-extractor.exe`. To use a different location, edit `src/backend/wine.rs:167` and rebuild.
 
 Place `fitgirl-extractor.exe` at `/tmp/fitgirl-extractor.exe` or update the path in `src/backend/wine.rs`.
 
