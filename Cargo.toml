@@ -1,0 +1,33 @@
+[package]
+name = "game-extractor"
+version = "0.1.0"
+edition = "2021"
+description = "Native Linux game installer extractor for FitGirl repacks"
+
+[dependencies]
+clap = { version = "4.5", features = ["derive", "env"] }
+anyhow = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.0", features = ["full"] }
+walkdir = "2.5"
+indicatif = "0.17"
+sha2 = "0.10"
+md5 = "0.7"
+hex = "0.4"
+tempfile = "3.0"
+dirs = "5.0"
+thiserror = "1.0"
+parking_lot = "0.12"
+regex = "1.0"
+futures = "0.3"
+async-trait = "0.1"
+which = "4.0"
+zstd = "0.13"
+lzma-rs = "0.3"
+byteorder = "1.5"
+flate2 = "1.0"
+
+[profile.release]
+lto = true
+opt-level = 3
