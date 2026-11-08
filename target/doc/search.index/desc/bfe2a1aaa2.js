@@ -1,1 +1,0 @@
-rd_("AfThe MD5 hash function.BhCreate a context for computing a digest.AoReturns the argument unchanged.0BaCalls <code>U::from(self)</code>.0iA digest.jA context.AkCompute the digest of data.AoFinalize and return the digest.mConsume data.")
